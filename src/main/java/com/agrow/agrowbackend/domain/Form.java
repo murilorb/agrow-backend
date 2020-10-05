@@ -26,15 +26,14 @@ public class Form {
     @NotNull
     @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd/MM/yyyy")
     private LocalDate date;
-    @ManyToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(name="responsible_id")
-    private Responsible responsible;
+    @NotBlank
+    private String responsible;
 
 
     public Form() {
     }
 
-    public Form(String client, String requester, String description, LocalDate date, Responsible responsible){
+    public Form(String client, String requester, String description, LocalDate date, String responsible){
         this.client = client;
         this.requester = requester;
         this.description = description;
@@ -82,11 +81,11 @@ public class Form {
         this.date = date;
     }
 
-    public Responsible getResponsible() {
+    public String getResponsible() {
         return responsible;
     }
 
-    public void setResponsible(Responsible responsible) {
+    public void setResponsible(String responsible) {
         this.responsible = responsible;
     }
 

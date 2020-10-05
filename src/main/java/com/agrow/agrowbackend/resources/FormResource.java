@@ -40,6 +40,12 @@ public class FormResource implements Serializable {
          return ResponseEntity.ok().build();
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<Form> updateForm(@RequestBody Form form) {
+        Form formUpdated = formService.update(form);
+        return ResponseEntity.ok().body(formUpdated);
+    }
+
 
 
 }
